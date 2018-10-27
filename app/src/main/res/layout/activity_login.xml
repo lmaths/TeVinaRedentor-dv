@@ -104,7 +104,7 @@
         android:layout_marginEnd="44dp"
         android:layout_marginRight="44dp"
         android:onClick="abrirPassword"
-        android:text="Esqueceu sua senha?"
+        android:text="Esqueceu sua senha??"
         android:textColor="@color/caganeira"
         android:textSize="16sp"
         android:textStyle="bold"
