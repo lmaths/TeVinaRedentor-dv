@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "154344942513",
+    "firebase_url": "https://te-vinaredentor.firebaseio.com",
+    "project_id": "te-vinaredentor",
+    "storage_bucket": "te-vinaredentor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:154344942513:android:eb196bcafad70a69",
+        "android_client_info": {
+          "package_name": "com.rightside.tevinaredentor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "154344942513-9mf9o1aklphi153c339go1bj9c86b1vm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rightside.tevinaredentor",
+            "certificate_hash": "2516f447edf5a9f967a3ef66833c153aba9ea098"
+          }
+        },
+        {
+          "client_id": "154344942513-1gbhv772j3okr4s9u9si68kht53fcb5d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_Ll1_yfi6LYJeM9tNY36CP0kKy1Gz0js"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "154344942513-1gbhv772j3okr4s9u9si68kht53fcb5d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
