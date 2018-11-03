@@ -212,6 +212,9 @@ public class ChatActivity extends AppCompatActivity {
                             //salvar para destinatario
                             salvarMensagem(idUsuarioDestinatario, idUsuarioRemetente, mensagem);
 
+                            //salvar uma conversa para historico de conversa
+                            salvarConversa(mensagem);
+
 
 
 

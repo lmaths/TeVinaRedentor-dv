@@ -55,6 +55,7 @@ public class AdapterComentario extends RecyclerView.Adapter<AdapterComentario.My
 
 
 
+
         holder.nomeUsuario.setText( comentario.getNomeUsuario() );
         holder.comentario.setText( comentario.getComentario() );
         Glide.with(context).load(comentario.getCaminhoFoto()).into(holder.imagemPerfil);
@@ -63,12 +64,14 @@ public class AdapterComentario extends RecyclerView.Adapter<AdapterComentario.My
 
     DatabaseReference indicadoresRef = ConfiguracaoFirebase.getFirebase()
             .child("Indicadores")
-            .child( comentario.getIdComentario() );
+            .child(comentario.getIdPostagem())
+            .child(comentario.getIdComentario());
+
 
         indicadoresRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                int qtdindicadores =0;
+                int qtdindicadores = 0;
                 if (dataSnapshot.hasChild("qtdindicacao")) {
                     Indicador indicador = dataSnapshot.getValue(Indicador.class);
                     qtdindicadores = indicador.getQtdIndicação();
@@ -90,7 +93,7 @@ public class AdapterComentario extends RecyclerView.Adapter<AdapterComentario.My
 
                     @Override
                     public void liked(LikeButton likeButton ) {
-                            indicador.salvarindicador();
+                        indicador.salvarindicador();
                         holder.qtdindicador.setText(indicador.getQtdIndicação() + " + confiavel ");
                     }
                     public void unLiked(LikeButton likeButton) {

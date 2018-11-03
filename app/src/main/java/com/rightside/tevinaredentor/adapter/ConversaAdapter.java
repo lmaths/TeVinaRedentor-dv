@@ -80,6 +80,9 @@ public class ConversaAdapter extends RecyclerView.Adapter<ConversaAdapter.MyView
 
             foto = itemView.findViewById(R.id.imageViewFotoContato); //ids do xml
             nome = itemView.findViewById(R.id.textNomeContato); //paassando ids do xml
+            ultimamensagem =itemView.findViewById(R.id.textUltimaMensagem);
+
+            ultimamensagem.setVisibility(View.GONE);
 
 
         }

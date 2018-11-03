@@ -101,8 +101,8 @@
         android:layout_width="167dp"
         android:layout_height="25dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginRight="44dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginRight="120dp"
         android:onClick="abrirPassword"
         android:text="Esqueceu sua senha??"
         android:textColor="@color/caganeira"
@@ -111,7 +111,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonEntrar"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.333" />
 
     <ProgressBar
         android:id="@+id/progressLogin"

@@ -16,6 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.rightside.tevinaredentor.R;
 import com.rightside.tevinaredentor.fragment.ConversaFragment;
 import com.rightside.tevinaredentor.fragment.FeedFragment;
+import com.rightside.tevinaredentor.fragment.HistoricochatFragment;
 import com.rightside.tevinaredentor.fragment.PerfilFragment;
 import com.rightside.tevinaredentor.fragment.PesquisaFragment;
 import com.rightside.tevinaredentor.fragment.PostagemFragment;
@@ -100,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
                         fragmentTransaction.replace(R.id.viewPager, new PerfilFragment()).commit();
                         return true;
                     case R.id.ic_chat :
-                        fragmentTransaction.replace(R.id.viewPager, new ConversaFragment()).commit();
+                        fragmentTransaction.replace(R.id.viewPager, new HistoricochatFragment()).commit();
                         return true;
 
                 }
