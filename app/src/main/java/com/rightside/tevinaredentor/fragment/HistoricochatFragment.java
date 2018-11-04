@@ -11,16 +11,20 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.rightside.tevinaredentor.R;
+import com.rightside.tevinaredentor.activity.ChatActivity;
 import com.rightside.tevinaredentor.adapter.HistoricoAdapter;
 import com.rightside.tevinaredentor.helper.ConfiguracaoFirebase;
+import com.rightside.tevinaredentor.helper.RecyclerItemClickListener;
 import com.rightside.tevinaredentor.helper.UsuarioFirebase;
 import com.rightside.tevinaredentor.model.Conversasalva;
+import com.rightside.tevinaredentor.model.Usuario;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,6 +71,34 @@ public class HistoricochatFragment extends Fragment {
         recyclerViewConversas.setHasFixedSize(true);
         recyclerViewConversas.setAdapter(adapter);
 
+        //configura evento de clique
+
+        recyclerViewConversas.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), recyclerViewConversas, new RecyclerItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+
+                Conversasalva conversaSelecionada = listaConversas.get(position);
+                Intent i = new Intent(getActivity(), ChatActivity.class); // passando a activity chat
+                i.putExtra("chatContato", conversaSelecionada.getUsuarioExibicao());
+                startActivity(i);
+
+
+            }
+
+            @Override
+            public void onLongItemClick(View view, int position) {
+
+            }
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+        }));
+
+
+
+        //configura conversas ref
         String identificadorUsuario = UsuarioFirebase.getIdentificadorUsuario();
         database = ConfiguracaoFirebase.getFirebase();
         conversasRef = database.child("conversas").child(identificadorUsuario);

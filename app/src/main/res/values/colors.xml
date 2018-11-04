@@ -3,10 +3,12 @@
     <color name="colorPrimary">@android:color/white</color>
     <color name ="colortransparente">#FFFFFF</color>
     <color name="colorPrimaryDark">#462759</color>
-    <color name="colorAccent">#f680fd</color>
-    <color name="cinza_medio">#ebebeb</color>
+    <color name="colorAccent">#95808000</color>
+    <color name="cinza_medio">#FFFAFA</color>
     <color name="roxo">#462759</color>
     <color name="azulEscuro">#3f51b5</color>
     <color name="balaoRemetente">#dbf9c4</color>
     <color name="caganeira">#99808000</color>
+     <color name="black">#CC000000</color>
+
 </resources>
