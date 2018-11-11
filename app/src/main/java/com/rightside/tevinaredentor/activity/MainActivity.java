@@ -7,6 +7,7 @@ import android.support.annotation.RequiresApi;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -37,8 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Configura toolbar
         Toolbar toolbar = findViewById(R.id.toolbarPrincipal);
-        toolbar.setLogo(R.drawable.teste4);
-        toolbar.setTitle("");
+        toolbar.setTitle("Te vi na Redentor");
         setSupportActionBar( toolbar );
 
         //configuracoes de objetos
@@ -48,8 +48,9 @@ public class MainActivity extends AppCompatActivity {
         configuraBottomNavigationView();
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
         fragmentTransaction.replace(R.id.viewPager, new FeedFragment()).commit();
+
+
 
     }
 
@@ -77,6 +78,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+
     /**
      * Método responsável por tratar eventos de click na BottomNavigation
      * @param viewEx
@@ -93,23 +96,40 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()){
                     case R.id.ic_home :
                         fragmentTransaction.replace(R.id.viewPager, new FeedFragment()).commit();
-                        return true;
+                        ActionBar a = getSupportActionBar();
+                        a.setTitle("Te vi na Redentor");
+                       break;
                     case R.id.ic_pesquisa :
                         fragmentTransaction.replace(R.id.viewPager, new PesquisaFragment()).commit();
-                        return true;
+                        ActionBar b = getSupportActionBar();
+                        b.setTitle("Pesquisar");
+                        break;
                     case R.id.ic_postagem :
                         fragmentTransaction.replace(R.id.viewPager, new PostagemFragment()).commit();
-                        return true;
+                        ActionBar c = getSupportActionBar();
+                        c.setTitle("Postar Foto");
+                       break;
                     case R.id.ic_perfil :
                         fragmentTransaction.replace(R.id.viewPager, new PerfilFragment()).commit();
-                        return true;
-                    case R.id.ic_chat :
+                        ActionBar d = getSupportActionBar();
+                        d.setTitle("Visualizar Perfil");
+                        break;
+
+                        case R.id.ic_chat :
+                            ActionBar e = getSupportActionBar();
+                        e.setTitle("Minhas Conversas");
                         fragmentTransaction.replace(R.id.viewPager, new HistoricochatFragment()).commit();
-                        return true;
+                        break;
 
-                }
+                        default:
+                            ActionBar f = getSupportActionBar();
 
-                return false;
+                            return false;
+
+                        }
+
+
+                return true;
             }
         });
 

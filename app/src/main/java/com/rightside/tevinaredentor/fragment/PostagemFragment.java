@@ -103,7 +103,7 @@ public class PostagemFragment extends Fragment {
 
                     //Converte imagem em byte array
                     ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                    imagem.compress(Bitmap.CompressFormat.JPEG, 70, baos);
+                    imagem.compress(Bitmap.CompressFormat.JPEG, 50, baos);
                     byte[] dadosImagem = baos.toByteArray();
 
                     //Envia imagem escolhida para aplicação de filtro

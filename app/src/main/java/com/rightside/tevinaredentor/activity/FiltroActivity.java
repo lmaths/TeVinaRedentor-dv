@@ -239,7 +239,7 @@ public class FiltroActivity extends AppCompatActivity {
 
         //Recuperar dados da imagem para o firebase
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        imagemFiltro.compress(Bitmap.CompressFormat.JPEG, 70, baos);
+        imagemFiltro.compress(Bitmap.CompressFormat.JPEG, 50, baos);
         byte[] dadosImagem = baos.toByteArray();
 
         //Salvar imagem no firebase storage

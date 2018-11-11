@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -59,6 +60,7 @@ public class HistoricochatFragment extends Fragment {
         floatingActionButton = view.findViewById(R.id.floatingActionButton);
         recyclerViewConversas = view.findViewById(R.id.recyclerListaConversas);
 
+
         //configurar adapter
 
         adapter = new HistoricoAdapter(listaConversas, getActivity());
@@ -111,6 +113,8 @@ public class HistoricochatFragment extends Fragment {
             public void onClick(View v) {
 
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.viewPager, new ConversaFragment(),"conversa").commit();
+
+
 
 
             }

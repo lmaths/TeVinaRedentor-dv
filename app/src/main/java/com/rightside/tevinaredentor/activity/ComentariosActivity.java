@@ -42,6 +42,7 @@ public class ComentariosActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comentarios);
 
+
         //Inicializa componentes
         editComentario = findViewById(R.id.editComentario);
         recyclerComentarios = findViewById(R.id.recyclerComentarios);

@@ -1,6 +1,7 @@
 package com.rightside.tevinaredentor.fragment;
 
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -54,6 +55,7 @@ public class  ConversaFragment extends Fragment {
         recyclerViewListaContatos =  view.findViewById(R.id.recyclerViewListaContatos);
         usuariosRef = ConfiguracaoFirebase.getFirebase().child("usuarios"); //REFERENCIA DA TABELA DO FIREBASE USUARIOS
         usuarioAtual = UsuarioFirebase.getUsuarioAtual();
+
 
 
         //CONFIGURAR O ADAPTADOR

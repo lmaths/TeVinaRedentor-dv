@@ -9,10 +9,12 @@
     android:paddingRight="16dp"
     android:paddingTop="8dp">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageFotoComentario"
