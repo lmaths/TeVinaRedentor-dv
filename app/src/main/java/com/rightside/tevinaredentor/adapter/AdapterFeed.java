@@ -19,11 +19,13 @@ import com.rightside.tevinaredentor.R;
 import com.rightside.tevinaredentor.activity.ComentariosActivity;
 import com.rightside.tevinaredentor.helper.ConfiguracaoFirebase;
 import com.rightside.tevinaredentor.helper.UsuarioFirebase;
+import com.rightside.tevinaredentor.model.Comentario;
 import com.rightside.tevinaredentor.model.Feed;
 import com.rightside.tevinaredentor.model.PostagemCurtida;
 import com.rightside.tevinaredentor.model.Usuario;
 import com.like.LikeButton;
 import com.like.OnLikeListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -55,13 +57,24 @@ public class AdapterFeed extends RecyclerView.Adapter<AdapterFeed.MyViewHolder> 
 
         //Carrega dados do feed
         Uri uriFotoUsuario = Uri.parse( feed.getFotoUsuario() );
-        Uri uriFotoPostagem = Uri.parse( feed.getFotoPostagem() );
+
+        final Uri uriFotoPostagem = Uri.parse( feed.getFotoPostagem() );
 
         Glide.with( context ).load( uriFotoUsuario ).into(holder.fotoPerfil);
-        Glide.with( context ).load( uriFotoPostagem ).into(holder.fotoPostagem);
 
+       Glide.with( context ).load( uriFotoPostagem ).into(holder.fotoPostagem);
+        //Picasso.get().load(uriFotoUsuario).into(holder.fotoPerfil);
+        //Picasso.get().load(uriFotoPostagem).into(holder.fotoPostagem);
+
+        //Picasso.get()
+                //.load(uriFotoPostagem)
+                //.into(holder.fotoPostagem);
         holder.descricao.setText( feed.getDescricao() );
         holder.nome.setText( feed.getNomeUsuario() );
+
+
+
+
 
         //Adiciona evento de clique nos comentários
         holder.visualizarComentario.setOnClickListener(new View.OnClickListener() {
@@ -69,7 +82,12 @@ public class AdapterFeed extends RecyclerView.Adapter<AdapterFeed.MyViewHolder> 
             public void onClick(View v) {
                 Intent i = new Intent(context, ComentariosActivity.class);
                 i.putExtra("idPostagem", feed.getId() );
+
                 context.startActivity( i );
+
+
+
+
             }
         });
 
@@ -113,17 +131,17 @@ public class AdapterFeed extends RecyclerView.Adapter<AdapterFeed.MyViewHolder> 
                     @Override
                     public void liked(LikeButton likeButton) {
                         curtida.salvar();
-                        holder.qtdCurtidas.setText( curtida.getQtdCurtidas() + " curtidas" );
+                        holder.qtdCurtidas.setText( curtida.getQtdCurtidas() + " pessoas gostaram" );
                     }
 
                     @Override
                     public void unLiked(LikeButton likeButton) {
                         curtida.remover();
-                        holder.qtdCurtidas.setText( curtida.getQtdCurtidas() + " curtidas" );
+                        holder.qtdCurtidas.setText( curtida.getQtdCurtidas() + " pessoas gostaram" );
                     }
                 });
 
-                holder.qtdCurtidas.setText( curtida.getQtdCurtidas() + " curtidas" );
+                holder.qtdCurtidas.setText( curtida.getQtdCurtidas() + " pessoas gostaram" );
 
             }
 
@@ -155,11 +173,13 @@ public class AdapterFeed extends RecyclerView.Adapter<AdapterFeed.MyViewHolder> 
             fotoPerfil.setVisibility(View.GONE);//esconder a foto de quem postou, mas mantendo de "fundo" recuperadodddddddddddddd
             fotoPostagem = itemView.findViewById(R.id.imagePostagemSelecionada);
             nome         = itemView.findViewById(R.id.textPerfilPostagem);
-            nome.setVisibility(View.GONE); //esconder o nome de quem postou, mas mantendo de "fundo" recuperadodddddddddddddd
+           nome.setVisibility(View.GONE); //esconder o nome de quem postou, mas mantendo de "fundo" recuperadodddddddddddddd
             qtdCurtidas  = itemView.findViewById(R.id.textQtdCurtidasPostagem);
             descricao    = itemView.findViewById(R.id.textDescricaoPostagem);
             visualizarComentario    = itemView.findViewById(R.id.imageComentarioFeed);
             likeButton = itemView.findViewById(R.id.likeButtonFeed);
+
+
         }
     }
 

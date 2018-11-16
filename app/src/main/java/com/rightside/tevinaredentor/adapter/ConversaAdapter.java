@@ -14,6 +14,7 @@ import com.rightside.tevinaredentor.R;
 import com.rightside.tevinaredentor.model.Conversasalva;
 import com.rightside.tevinaredentor.model.Mensagem;
 import com.rightside.tevinaredentor.model.Usuario;
+import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
 
@@ -50,7 +51,7 @@ public class ConversaAdapter extends RecyclerView.Adapter<ConversaAdapter.MyView
 
         if ( usuario.getCaminhoFoto() != null) { //SE O USUARIO.CAMINHOFOTO FOR DIFERENTE DE NULO TEMOS UMA FOTO
             Uri uri = Uri.parse(usuario.getCaminhoFoto()); //CONVERTENDO DE STRING PARA URI PARA PASSAR NO PARAMETRO
-            Glide.with( context ).load(uri).into(holder.foto);
+            Picasso.get().load(uri).into(holder.foto);
 
        } else  {
             holder.foto.setImageResource(R.drawable.avatar); //CASO NÃO TENHA FOTO UTILIZAR A FOTO PADRÃO

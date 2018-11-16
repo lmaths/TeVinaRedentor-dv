@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="6dp"
         android:background="@drawable/bg_balao"
-        android:backgroundTint="@android:color/white"
+        android:backgroundTint="@color/azul"
         android:orientation="vertical"
         android:layout_alignParentLeft="true">
 

@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.rightside.tevinaredentor.R;
 import com.rightside.tevinaredentor.model.Usuario;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -45,7 +46,8 @@ public class AdapterPesquisa extends RecyclerView.Adapter<AdapterPesquisa.MyView
 
         if( usuario.getCaminhoFoto() != null ){
             Uri uri = Uri.parse( usuario.getCaminhoFoto() );
-            Glide.with(context).load(uri).into(holder.foto);
+            //Glide.with(context).load(uri).into(holder.foto);
+            Picasso.get().load(uri).into(holder.foto);
         }else {
             holder.foto.setImageResource(R.drawable.avatar);
         }

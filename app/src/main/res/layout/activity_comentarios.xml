@@ -19,29 +19,6 @@
         android:orientation="vertical"
         android:padding="5dp">
 
-        <ImageView
-            android:id="@+id/imagePostagemSelecionada"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginBottom="5dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imagePerfilPostagem"
-            app:srcCompat="@drawable/avatar" />
-        <View
-            android:id="@+id/view"
-            android:layout_width="fill_parent"
-            android:layout_height="5dp"
-            android:layout_marginBottom="8dp"
-            android:background="#000"
-            app:layout_constraintBottom_toTopOf="@+id/textCadastrar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textChangePassword" />
-
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerComentarios"
             android:layout_width="match_parent"

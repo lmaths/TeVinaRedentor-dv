@@ -18,6 +18,7 @@ import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.rightside.tevinaredentor.R;
 import com.rightside.tevinaredentor.activity.ChatActivity;
 import com.rightside.tevinaredentor.adapter.HistoricoAdapter;
@@ -42,6 +43,7 @@ public class HistoricochatFragment extends Fragment {
     private DatabaseReference database;
     private DatabaseReference conversasRef;
     private ChildEventListener childEventListenerConversas;
+    private MaterialSearchView searchView;
 
 
 
@@ -64,6 +66,7 @@ public class HistoricochatFragment extends Fragment {
         //configurar adapter
 
         adapter = new HistoricoAdapter(listaConversas, getActivity());
+
 
 
 
@@ -179,6 +182,7 @@ public class HistoricochatFragment extends Fragment {
 
 
     }
+
 
 
 }

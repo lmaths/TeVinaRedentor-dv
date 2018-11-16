@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -29,6 +30,9 @@ public class ComentariosActivity extends AppCompatActivity {
     private RecyclerView recyclerComentarios;
 
     private String idPostagem;
+
+    private ImageView imagePostagemSelecionada;
+
     private Usuario usuario;
     private AdapterComentario adapterComentario;
     private List<Comentario> listaComentarios = new ArrayList<>();
@@ -65,10 +69,16 @@ public class ComentariosActivity extends AppCompatActivity {
         recyclerComentarios.setLayoutManager(new LinearLayoutManager(this));
         recyclerComentarios.setAdapter( adapterComentario );
 
+
+
+
         //Recupera id da postagem
         Bundle bundle = getIntent().getExtras();
         if( bundle != null ){
             idPostagem = bundle.getString("idPostagem");
+
+
+
         }
 
     }
@@ -134,6 +144,8 @@ public class ComentariosActivity extends AppCompatActivity {
         editComentario.setText("");
 
     }
+
+
 
     @Override
     public boolean onSupportNavigateUp() {

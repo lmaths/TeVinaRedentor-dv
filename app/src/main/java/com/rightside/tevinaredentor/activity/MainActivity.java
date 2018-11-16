@@ -16,6 +16,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.rightside.tevinaredentor.R;
 import com.rightside.tevinaredentor.fragment.ConversaFragment;
 import com.rightside.tevinaredentor.fragment.FeedFragment;
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth autenticacao;
 
+
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Configura toolbar
+
         Toolbar toolbar = findViewById(R.id.toolbarPrincipal);
         toolbar.setTitle("Te vi na Redentor");
         setSupportActionBar( toolbar );
@@ -141,6 +144,7 @@ public class MainActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_main, menu);
 
+
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -152,10 +156,15 @@ public class MainActivity extends AppCompatActivity {
                 deslogarUsuario();
                 startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                 break;
+
         }
+
+
 
         return super.onOptionsItemSelected(item);
     }
+
+
 
     private void deslogarUsuario(){
         try{

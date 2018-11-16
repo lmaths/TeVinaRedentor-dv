@@ -8,6 +8,7 @@
     tools:context="com.rightside.tevinaredentor.activity.LoginActivity"
     tools:layout_editor_absoluteY="25dp">
 
+
     <ImageView
         android:id="@+id/imageViewFotoContato"
         android:layout_width="350dp"
@@ -20,7 +21,7 @@
         android:layout_marginTop="24dp"
         app:layout_constraintBottom_toTopOf="@+id/progressLogin"
         app:layout_constraintEnd_toStartOf="@+id/progressLogin"
-        app:layout_constraintHorizontal_bias="0.613"
+        app:layout_constraintHorizontal_bias="0.541"
         app:layout_constraintStart_toStartOf="@+id/progressLogin"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logoc" />

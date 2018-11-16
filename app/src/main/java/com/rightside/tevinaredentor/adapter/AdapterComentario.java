@@ -1,11 +1,14 @@
 package com.rightside.tevinaredentor.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -51,14 +54,11 @@ public class AdapterComentario extends RecyclerView.Adapter<AdapterComentario.My
        final Comentario comentario = listaComentarios.get( position );
        final Usuario usuarioLogado = UsuarioFirebase.getDadosUsuarioLogado();
 
-
-
-
-
-
         holder.nomeUsuario.setText( comentario.getNomeUsuario() );
         holder.comentario.setText( comentario.getComentario() );
         Glide.with(context).load(comentario.getCaminhoFoto()).into(holder.imagemPerfil);
+
+
 
 
 
@@ -128,12 +128,14 @@ public class AdapterComentario extends RecyclerView.Adapter<AdapterComentario.My
         CircleImageView imagemPerfil;
         TextView nomeUsuario, comentario, qtdindicador;
         LikeButton likeButton2;
+        ImageView fotoPostagem;
 
 
 
 
         public MyViewHolder(View itemView) {
             super(itemView);
+            fotoPostagem = itemView.findViewById(R.id.imagePerfilPostagem);
             qtdindicador = itemView.findViewById(R.id.textQtdCurtidasPostagem2);
             imagemPerfil = itemView.findViewById(R.id.imageFotoComentario);
             nomeUsuario = itemView.findViewById(R.id.textNomeComentario);

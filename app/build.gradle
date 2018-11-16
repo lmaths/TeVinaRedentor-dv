@@ -23,6 +23,7 @@ dependencies {
     //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation "com.android.support:design:26.+"
+    implementation 'com.squareup.picasso:picasso:2.71828'
 
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
     implementation 'com.android.support:support-v4:26.1.0'
@@ -37,7 +38,6 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:11.8.0'
     implementation 'com.firebaseui:firebase-ui-storage:0.6.0'
 
-
     //Dependências bottom navigationEX
     implementation 'com.github.ittianyu:BottomNavigationViewEx:1.2.4'
 
@@ -49,6 +49,9 @@ dependencies {
 
     //Dependência da Lib Universal Image Loader
     implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+
+    //biblioteca material search view
+    compile 'com.miguelcatalan:materialsearchview:1.4.0'
 
     //Dependências like button
     implementation 'com.github.jd-alexander:LikeButton:0.2.3'

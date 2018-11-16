@@ -11,6 +11,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -26,6 +29,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.rightside.tevinaredentor.R;
 import com.rightside.tevinaredentor.adapter.MensagensAdapter;
 import com.rightside.tevinaredentor.helper.ConfiguracaoFirebase;
@@ -56,6 +60,7 @@ public class ChatActivity extends AppCompatActivity {
     private DatabaseReference database;
     private ChildEventListener childEventListenerMensagens;
 
+
     private RecyclerView recyclerMensagens;
     private MensagensAdapter adapter;
     private List<Mensagem> mensagens = new ArrayList<>();
@@ -76,6 +81,7 @@ public class ChatActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
         //CONFIGURAÇÕES INICIAIS
         textViewNome = findViewById(R.id.textViewNomeChat);
         circleImageViewFoto = findViewById(R.id.circleImageFoto);
@@ -83,6 +89,10 @@ public class ChatActivity extends AppCompatActivity {
         recyclerMensagens = findViewById(R.id.recyclerMensagens);
         imageCamera = findViewById(R.id.imageCamera);
         imageGaleria = findViewById(R.id.imageGaleria);
+
+
+
+
 
         //recuperar dados usuario remetente
 
@@ -321,4 +331,6 @@ public class ChatActivity extends AppCompatActivity {
                 }
             });    //tratamento para atualizar o event listner
         }
+
+
 }

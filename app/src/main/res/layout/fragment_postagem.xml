@@ -1,4 +1,5 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -6,18 +7,57 @@
     android:orientation="vertical"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
-    tools:context="com.rightside.tevinaredentor.fragment.PostagemFragment">
+    tools:context="com.rightside.tevinaredentor.fragment.PostagemFragment"
+    tools:layout_editor_absoluteY="25dp">
 
+    <View
+        android:id="@+id/view"
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="471dp"
+        android:background="#66cccccc"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/buttonAbrirGaleria"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Abrir galeria" />
+        android:layout_marginBottom="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.401"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view">
 
-    <Button
-        android:id="@+id/buttonAbrirCamera"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Abrir câmera" />
-</LinearLayout>
+        <Button
+            android:id="@+id/buttonAbrirGaleria"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="50dp"
+            android:background="@drawable/galeria"
+            android:text=""
+            tools:layout_editor_absoluteX="210dp"
+            tools:layout_editor_absoluteY="518dp" />
+
+        <Button
+            android:id="@+id/buttonAbrirCamera"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="45dp"
+            android:background="@drawable/camera"
+            android:text=""
+            tools:layout_editor_absoluteX="118dp"
+            tools:layout_editor_absoluteY="518dp" />
+
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
