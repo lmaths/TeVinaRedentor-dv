@@ -160,7 +160,7 @@ public class FiltroActivity extends AppCompatActivity {
 
     private void recuperarDadosPostagem(){
 
-        abrirDialogCarregamento("Carregando dados, aguarde!");
+        abrirDialogCarregamento("Carregando, aguarde!");
         usuarioLogadoRef = usuariosRef.child( idUsuarioLogado );
         usuarioLogadoRef.addListenerForSingleValueEvent(
                 new ValueEventListener() {
@@ -232,7 +232,7 @@ public class FiltroActivity extends AppCompatActivity {
 
     private void publicarPostagem(){
 
-        abrirDialogCarregamento("Salvando postagem");
+        abrirDialogCarregamento("Aguarde, sua postagem será feita em instantes!");
         final Postagem postagem = new Postagem();
         postagem.setIdUsuario( idUsuarioLogado );
         postagem.setDescricao( textDescricaoFiltro.getText().toString() );
@@ -274,7 +274,7 @@ public class FiltroActivity extends AppCompatActivity {
                 if( postagem.salvar( seguidoresSnapshot ) ){
 
                     Toast.makeText(FiltroActivity.this,
-                            "Sucesso ao salvar postagem!",
+                            "Prontinho, sua foto foi postada! :)",
                             Toast.LENGTH_SHORT).show();
                     dialog.cancel();
                     finish();

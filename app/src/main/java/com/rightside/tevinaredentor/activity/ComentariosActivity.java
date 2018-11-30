@@ -130,7 +130,7 @@ public class ComentariosActivity extends AppCompatActivity {
             comentario.setComentario( textoComentario );
             if(comentario.salvar()){
                 Toast.makeText(this,
-                        "Comentário salvo com sucesso!",
+                        "Comentario realizado",
                         Toast.LENGTH_SHORT).show();
             }
 

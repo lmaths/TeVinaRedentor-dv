@@ -41,7 +41,9 @@ public class MainActivity extends AppCompatActivity {
         //Configura toolbar
 
         Toolbar toolbar = findViewById(R.id.toolbarPrincipal);
-        toolbar.setTitle("Te vi na Redentor");
+        toolbar.setTitle("   Te vi na Redentor");
+        toolbar.setLogo(R.drawable.logobarra);
+
         setSupportActionBar( toolbar );
 
         //configuracoes de objetos
@@ -100,27 +102,27 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.ic_home :
                         fragmentTransaction.replace(R.id.viewPager, new FeedFragment()).commit();
                         ActionBar a = getSupportActionBar();
-                        a.setTitle("Te vi na Redentor");
+                        a.setTitle("  Te vi na Redentor");
                        break;
-                    case R.id.ic_pesquisa :
+                  /*  case R.id.ic_pesquisa :
                         fragmentTransaction.replace(R.id.viewPager, new PesquisaFragment()).commit();
                         ActionBar b = getSupportActionBar();
-                        b.setTitle("Pesquisar");
-                        break;
+                        b.setTitle(" Pesquisar");
+                        break; */
                     case R.id.ic_postagem :
                         fragmentTransaction.replace(R.id.viewPager, new PostagemFragment()).commit();
                         ActionBar c = getSupportActionBar();
-                        c.setTitle("Postar Foto");
+                        c.setTitle(" Postar Foto");
                        break;
                     case R.id.ic_perfil :
                         fragmentTransaction.replace(R.id.viewPager, new PerfilFragment()).commit();
                         ActionBar d = getSupportActionBar();
-                        d.setTitle("Visualizar Perfil");
+                        d.setTitle(" Meu Perfil");
                         break;
 
                         case R.id.ic_chat :
                             ActionBar e = getSupportActionBar();
-                        e.setTitle("Minhas Conversas");
+                        e.setTitle(" Minhas Conversas");
                         fragmentTransaction.replace(R.id.viewPager, new HistoricochatFragment()).commit();
                         break;
 

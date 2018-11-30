@@ -60,60 +60,7 @@ public class AdapterComentario extends RecyclerView.Adapter<AdapterComentario.My
 
 
 
-
-
-    DatabaseReference indicadoresRef = ConfiguracaoFirebase.getFirebase()
-            .child("Indicadores")
-            .child(comentario.getIdPostagem())
-            .child(comentario.getIdComentario());
-
-
-        indicadoresRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                int qtdindicadores = 0;
-                if (dataSnapshot.hasChild("qtdindicacao")) {
-                    Indicador indicador = dataSnapshot.getValue(Indicador.class);
-                    qtdindicadores = indicador.getQtdIndicação();
-                }
-
-                if (dataSnapshot.hasChild(usuarioLogado.getId())) {
-                    holder.likeButton2.setLiked(true);}
-                    else {
-                    holder.likeButton2.setLiked(false);
-                }
-
-                final Indicador indicador = new Indicador();
-                indicador.setComent(comentario);
-                indicador.setUsuario(usuarioLogado);
-                indicador.setQtdIndicação(qtdindicadores);
-
-                //evento pra indicar
-                holder.likeButton2.setOnLikeListener(new OnLikeListener() {
-
-                    @Override
-                    public void liked(LikeButton likeButton ) {
-                        indicador.salvarindicador();
-                        holder.qtdindicador.setText(indicador.getQtdIndicação() + " + confiavel ");
-                    }
-                    public void unLiked(LikeButton likeButton) {
-                        indicador.remover();
-                        holder.qtdindicador.setText(indicador.getQtdIndicação() + " + confiavel ");
-                    }
-                });
-                holder.qtdindicador.setText(indicador.getQtdIndicação() + "+ confiavel");
-            }
-
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-
-
-    }
+        }
 
     @Override
     public int getItemCount() {
@@ -136,11 +83,10 @@ public class AdapterComentario extends RecyclerView.Adapter<AdapterComentario.My
         public MyViewHolder(View itemView) {
             super(itemView);
             fotoPostagem = itemView.findViewById(R.id.imagePerfilPostagem);
-            qtdindicador = itemView.findViewById(R.id.textQtdCurtidasPostagem2);
             imagemPerfil = itemView.findViewById(R.id.imageFotoComentario);
             nomeUsuario = itemView.findViewById(R.id.textNomeComentario);
             comentario = itemView.findViewById(R.id.textComentario);
-            likeButton2 = itemView.findViewById(R.id.likeButtonFeed);
+
 
 
         }

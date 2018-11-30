@@ -119,7 +119,7 @@ public class CadastroActivity extends AppCompatActivity {
                                 UsuarioFirebase.atualizarNomeUsuario( usuario.getNome() );
 
                                 Toast.makeText(CadastroActivity.this,
-                                        "Cadastro com sucesso",
+                                        "Cadastro realizado com sucesso, Bem vindo(a)!",
                                         Toast.LENGTH_SHORT).show();
 
                                 startActivity( new Intent(getApplicationContext(), MainActivity.class));

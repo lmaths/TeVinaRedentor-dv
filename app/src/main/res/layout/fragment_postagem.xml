@@ -10,54 +10,62 @@
     tools:context="com.rightside.tevinaredentor.fragment.PostagemFragment"
     tools:layout_editor_absoluteY="25dp">
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="fill_parent"
-        android:layout_height="2dp"
-        android:layout_marginTop="471dp"
-        android:background="#66cccccc"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="wrap_content"
+        android:layout_width="336dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="224dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@color/verdeclaro"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.401"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view">
-
-        <Button
-            android:id="@+id/buttonAbrirGaleria"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="50dp"
-            android:background="@drawable/galeria"
-            android:text=""
-            tools:layout_editor_absoluteX="210dp"
-            tools:layout_editor_absoluteY="518dp" />
+        app:layout_constraintStart_toStartOf="parent">
 
         <Button
             android:id="@+id/buttonAbrirCamera"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginLeft="45dp"
+            android:layout_marginLeft="90dp"
             android:background="@drawable/camera"
             android:text=""
             tools:layout_editor_absoluteX="118dp"
             tools:layout_editor_absoluteY="518dp" />
 
+        <Button
+            android:id="@+id/buttonAbrirGaleria"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/galeria"
+            android:text=""
+            tools:layout_editor_absoluteX="210dp"
+            tools:layout_editor_absoluteY="518dp" />
+
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Postar suas fotos nunca foi tão simples, poste algo, conheça novas pessoas, faça novas amizades."
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.733" />
 
 </android.support.constraint.ConstraintLayout>
