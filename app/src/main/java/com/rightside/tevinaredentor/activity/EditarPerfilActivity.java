@@ -2,6 +2,7 @@ package com.rightside.tevinaredentor.activity;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.provider.MediaStore;
@@ -75,6 +76,7 @@ public class EditarPerfilActivity extends AppCompatActivity {
         FirebaseUser usuarioPerfil = UsuarioFirebase.getUsuarioAtual();
         editNomePerfil.setText( usuarioPerfil.getDisplayName().toUpperCase() );
         editEmailPerfil.setText( usuarioPerfil.getEmail() );
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         Uri url = usuarioPerfil.getPhotoUrl();
         if( url != null ){

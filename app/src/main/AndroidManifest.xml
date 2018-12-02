@@ -2,9 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.rightside.tevinaredentor">
 
-    <uses-feature
-        android:name="android.hardware.camera2"
-        android:required="true" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -23,8 +20,8 @@
             android:theme="@style/AppThemeLogin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
         <activity android:name=".activity.MainActivity" />
@@ -45,7 +42,7 @@
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.rightside.tevinaredentor.activity.MainActivity" />
+                android:value=".activity.MainActivity" />
         </activity>
         <activity android:name=".activity.ResetPasswordActivity" />
     </application>

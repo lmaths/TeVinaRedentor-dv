@@ -18,6 +18,20 @@
         android:layout_marginTop="45dp"
         app:srcCompat="@drawable/logoc" />
 
+    <EditText
+        android:id="@+id/editLoginEmail"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/background_caixa_texto"
+        android:ems="10"
+        android:hint="E-mail"
+        android:inputType="textEmailAddress"
+        android:padding="10dp"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white" />
+
 
     <EditText
         android:id="@+id/editLoginSenha"
@@ -28,7 +42,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/background_caixa_texto"
         android:ems="10"
         android:hint="Senha"
@@ -37,19 +51,7 @@
         android:textColor="@android:color/white"
         android:textColorHint="@android:color/white" />
 
-    <EditText
-        android:id="@+id/editLoginEmail"
-        android:layout_width="300dp"
-        android:layout_height="45dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/background_caixa_texto"
-        android:ems="10"
-        android:hint="E-mail"
-        android:inputType="textEmailAddress"
-        android:padding="10dp"
-        android:textColor="@android:color/white"
-        android:textColorHint="@android:color/white" />
+
 
     <Button
         android:id="@+id/buttonEntrar"

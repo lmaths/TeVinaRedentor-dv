@@ -97,7 +97,7 @@
         android:layout_height="50dp"
       android:layout_gravity="center"
         android:background="@drawable/background_botao"
-
+        android:layout_marginTop="10dp"
         android:text="Cadastrar"
         android:textColor="@android:color/white"
         />

@@ -33,7 +33,7 @@ import java.io.IOException;
  */
 public class PostagemFragment extends Fragment {
 
-    private Button buttonAbrirGaleria, buttonAbrirCamera, buttontirar;
+    private Button buttonAbrirGaleria, buttonAbrirCamera;
     private static final int SELECAO_CAMERA  = 100;
     private static final int SELECAO_GALERIA = 200;
     //android.hardware.Camera camera;

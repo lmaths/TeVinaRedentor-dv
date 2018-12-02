@@ -1,5 +1,6 @@
 package com.rightside.tevinaredentor.activity;
 
+import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -50,6 +51,7 @@ public class ComentariosActivity extends AppCompatActivity {
         //Inicializa componentes
         editComentario = findViewById(R.id.editComentario);
         recyclerComentarios = findViewById(R.id.recyclerComentarios);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         //Configuracoes iniciais
         usuario = UsuarioFirebase.getDadosUsuarioLogado();
