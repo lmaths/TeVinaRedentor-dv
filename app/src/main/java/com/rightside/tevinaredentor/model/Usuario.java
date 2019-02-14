@@ -21,7 +21,7 @@ public class Usuario implements Serializable {
     private String caminhoFoto;
     private int seguidores = 0;
     private int seguindo = 0;
-   private int postagens = 0;
+     private int postagens = 0;
 
     public Usuario() {
     }
