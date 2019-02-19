@@ -22,6 +22,7 @@ public class Usuario implements Serializable {
     private int seguidores = 0;
     private int seguindo = 0;
      private int postagens = 0;
+     private int numeroPostagens = 3;
 
     public Usuario() {
     }
@@ -73,6 +74,7 @@ public class Usuario implements Serializable {
         usuarioMap.put("seguidores", getSeguidores() );
         usuarioMap.put("seguindo", getSeguindo() );
         usuarioMap.put("postagens", getPostagens() );
+        usuarioMap.put("numeropostagens", getNumeroPostagens());
 
         return usuarioMap;
 
@@ -126,6 +128,14 @@ public class Usuario implements Serializable {
         this.email = email;
     }
 
+    public int getNumeroPostagens() {
+        return numeroPostagens;
+    }
+
+    public void setNumeroPostagens(int numeroPostagens) {
+        this.numeroPostagens = numeroPostagens;
+    }
+
     @Exclude
     public String getSenha() {
         return senha;
@@ -142,4 +152,6 @@ public class Usuario implements Serializable {
     public void setCaminhoFoto(String caminhoFoto) {
         this.caminhoFoto = caminhoFoto;
     }
+
+
 }

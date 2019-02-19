@@ -16,11 +16,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 import com.rightside.tevinaredentor.R;
 import com.rightside.tevinaredentor.activity.FiltroActivity;
+import com.rightside.tevinaredentor.helper.ConfiguracaoFirebase;
 import com.rightside.tevinaredentor.helper.Permissao;
 import com.rightside.tevinaredentor.helper.ShowCamera;
+import com.rightside.tevinaredentor.helper.UsuarioFirebase;
+import com.rightside.tevinaredentor.model.Usuario;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -36,9 +45,20 @@ public class PostagemFragment extends Fragment {
     private Button buttonAbrirGaleria, buttonAbrirCamera;
     private static final int SELECAO_CAMERA  = 100;
     private static final int SELECAO_GALERIA = 200;
+    private Usuario usuarioLogado;
+
+    private DatabaseReference firebaseRef;
+    private DatabaseReference usuariosRef;
+    private DatabaseReference usuarioLogadoRef;
+    private ValueEventListener valueEventListenerPerfil;
+    private TextView txtPostagens;
+    private int quantidade;
+
     //android.hardware.Camera camera;
    // FrameLayout frameLayout;
     //ShowCamera showCamera;
+
+
 
 
 
@@ -69,7 +89,11 @@ public class PostagemFragment extends Fragment {
         //Inicializar componentes
         buttonAbrirCamera = view.findViewById(R.id.buttonAbrirCamera);
         buttonAbrirGaleria = view.findViewById(R.id.buttonAbrirGaleria);
+        txtPostagens = view.findViewById(R.id.txtNumpostagens);
         //buttontirar = view.findViewById(R.id.buttonFoto);
+        usuarioLogado = UsuarioFirebase.getDadosUsuarioLogado();
+        firebaseRef = ConfiguracaoFirebase.getFirebase();
+        usuariosRef = firebaseRef.child("usuarios");
 
 
 
@@ -80,10 +104,18 @@ public class PostagemFragment extends Fragment {
          buttonAbrirCamera.setOnClickListener(new View.OnClickListener() {
            @Override
             public void onClick(View v) {
-               Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                if( i.resolveActivity( getActivity().getPackageManager() ) != null ){
-                   startActivityForResult(i, SELECAO_CAMERA );
-                }
+               if (quantidade > 0) {
+                  quantidade = quantidade - 1 ;
+                   usuarioLogado.setNumeroPostagens(quantidade);
+                   usuarioLogado.salvar();
+
+                   Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                   if (i.resolveActivity(getActivity().getPackageManager()) != null) {
+                       startActivityForResult(i, SELECAO_CAMERA);
+                   }
+               } else {
+                   Toast.makeText(getContext(), "ERRO NUMERO DE POSTAGENS INDISPONIVEL", Toast.LENGTH_SHORT).show();
+               }
           }
             });
 
@@ -103,11 +135,19 @@ public class PostagemFragment extends Fragment {
         buttonAbrirGaleria.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (quantidade > 0 ) {
+                    quantidade = quantidade - 1 ;
+                    usuarioLogado.setNumeroPostagens(quantidade);
+                    usuarioLogado.salvar();
                 Intent i = new Intent( Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI );
                 if( i.resolveActivity( getActivity().getPackageManager() ) != null ){
                     startActivityForResult(i, SELECAO_GALERIA );
                 }
+            } else  {
+                    Toast.makeText(getContext(), "Não foi possivel", Toast.LENGTH_SHORT).show();
+                }
             }
+
         });
 
 
@@ -201,4 +241,39 @@ public class PostagemFragment extends Fragment {
     //  }
 
 
+    private void recuperarDadosUsuarioLogado(){
+
+        usuarioLogadoRef = usuariosRef.child( usuarioLogado.getId() );
+        valueEventListenerPerfil = usuarioLogadoRef.addValueEventListener(
+                new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+
+                        Usuario usuario = dataSnapshot.getValue( Usuario.class );
+
+                        String postagens = String.valueOf( usuario.getNumeroPostagens() );
+
+
+                        txtPostagens.setText(postagens);
+
+                        quantidade = Integer.parseInt(postagens);
+                        //Configura valores recuperados
+
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                }
+        );
+
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        recuperarDadosUsuarioLogado();
+    }
 }
