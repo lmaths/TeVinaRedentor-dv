@@ -153,5 +153,7 @@ public class Usuario implements Serializable {
         this.caminhoFoto = caminhoFoto;
     }
 
+    // adicionado numero de contador 
+
 
 }
