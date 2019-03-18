@@ -43,7 +43,7 @@ public class PerfilFragment extends Fragment {
     private ProgressBar progressBar;
     private CircleImageView imagePerfil;
     public GridView gridViewPerfil;
-    private TextView textPublicacoes, textSeguidores, textSeguindo;
+    private TextView textPublicacoes, textNomeUsuario, textSeguindo;
     private Button buttonAcaoPerfil;
     private Usuario usuarioLogado;
 
@@ -153,10 +153,8 @@ public class PerfilFragment extends Fragment {
         progressBar = view.findViewById(R.id.progressBarPerfil);
         imagePerfil = view.findViewById(R.id.imagePerfil);
         textPublicacoes = view.findViewById(R.id.textPublicacoes);
-        textSeguidores = view.findViewById(R.id.textSeguidores);
-        textSeguidores.setVisibility(View.GONE);
-        textSeguindo = view.findViewById(R.id.textSeguindo);
-        textSeguindo.setVisibility(View.GONE);
+        textNomeUsuario = view.findViewById(R.id.txtNomeUsuario);
+
         buttonAcaoPerfil = view.findViewById(R.id.buttonAcaoPerfil);
     }
 
@@ -171,13 +169,15 @@ public class PerfilFragment extends Fragment {
                         Usuario usuario = dataSnapshot.getValue( Usuario.class );
 
                         String postagens = String.valueOf( usuario.getPostagens() );
-                        String seguindo = String.valueOf( usuario.getSeguindo() );
+                        String nomeUsuario = String.valueOf( usuario.getNome() );
                         String seguidores = String.valueOf( usuario.getSeguidores() );
 
+                        String nome = nomeUsuario.toLowerCase();
+                        nome = nome.substring(0,1).toUpperCase().concat(nome.substring(1));
                         //Configura valores recuperados
                         textPublicacoes.setText( postagens );
-                        textSeguidores.setText( seguidores );
-                        textSeguindo.setText( seguindo );
+                        textNomeUsuario.setText(nome);
+
 
                     }
 

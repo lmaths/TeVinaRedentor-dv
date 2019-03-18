@@ -19,6 +19,11 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.reward.RewardItem;
+import com.google.android.gms.ads.reward.RewardedVideoAd;
+import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -36,16 +41,20 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Timer;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PostagemFragment extends Fragment {
+public class PostagemFragment extends Fragment implements RewardedVideoAdListener {
 
-    private Button buttonAbrirGaleria, buttonAbrirCamera;
+    private Button buttonAbrirGaleria, buttonAbrirCamera, btnAbrirAd;
     private static final int SELECAO_CAMERA  = 100;
     private static final int SELECAO_GALERIA = 200;
     private Usuario usuarioLogado;
+    private RewardedVideoAd mAd;
+    Timer timer1 = new Timer();
+
 
     private DatabaseReference firebaseRef;
     private DatabaseReference usuariosRef;
@@ -53,6 +62,7 @@ public class PostagemFragment extends Fragment {
     private ValueEventListener valueEventListenerPerfil;
     private TextView txtPostagens;
     private int quantidade;
+
 
     //android.hardware.Camera camera;
    // FrameLayout frameLayout;
@@ -90,15 +100,31 @@ public class PostagemFragment extends Fragment {
         buttonAbrirCamera = view.findViewById(R.id.buttonAbrirCamera);
         buttonAbrirGaleria = view.findViewById(R.id.buttonAbrirGaleria);
         txtPostagens = view.findViewById(R.id.txtNumpostagens);
+        btnAbrirAd = view.findViewById(R.id.btnGanharPostagens);
         //buttontirar = view.findViewById(R.id.buttonFoto);
         usuarioLogado = UsuarioFirebase.getDadosUsuarioLogado();
         firebaseRef = ConfiguracaoFirebase.getFirebase();
         usuariosRef = firebaseRef.child("usuarios");
 
 
+        // propaganda
+
+        mAd = MobileAds.getRewardedVideoAdInstance(getActivity());
+        carregarRecompensaAd();
+
+
+
 
         //Adiciona evento de clique no botão da camera
+        btnAbrirAd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startVideoAd(view);
 
+
+
+            }
+        });
 
 
          buttonAbrirCamera.setOnClickListener(new View.OnClickListener() {
@@ -119,16 +145,7 @@ public class PostagemFragment extends Fragment {
           }
             });
 
-          // buttontirar.setOnClickListener(new View.OnClickListener() {
-              // @Override
-            //   public void onClick(View v) {
-                // if (camera!= null) {
-                      //  camera.takePicture(null,null, mPictureCallback);
 
-
-             //      }
-             //   }
-          //  });
 
 
             //Adiciona evento de clique no botão da galeria
@@ -198,47 +215,6 @@ public class PostagemFragment extends Fragment {
 
     }
 
-    //  Camera.PictureCallback mPictureCallback = new Camera.PictureCallback() {
-    //   @Override
-    //  public void onPictureTaken(byte[] data, Camera camera) {
-
-    //     File picture_file = getOutputMediaFile();
-
-    //     if (picture_file == null)  {
-    //        return;
-    //     } else {
-
-    //       try {
-    //       FileOutputStream fos = new FileOutputStream(picture_file);
-    //         fos.write(data);
-    //         fos.close();
-    //         camera.startPreview();
-    //       }catch (FileNotFoundException e) {
-    //           e.printStackTrace();
-    //       } catch (IOException e ) {
-    //          e.printStackTrace();
-    //       }
-
-
-    //    }
-    //  }
-    // };
-
-    // private File getOutputMediaFile() {
-    //   String state = Environment.getExternalStorageState();
-    //   if(!state.equals(Environment.MEDIA_MOUNTED)) {
-    //       return null;
-    //    } else {
-    //       File folder_gui = new File(Environment.getExternalStorageDirectory() + File.separator + "GUI");
-//
-    //      if (!folder_gui.exists()) {
-    //       folder_gui.mkdir();
-    //    }
-    //    File outputFile = new File(folder_gui, "temp.jpg");
-    //      return outputFile;
-    //  }
-
-    //  }
 
 
     private void recuperarDadosUsuarioLogado(){
@@ -256,8 +232,11 @@ public class PostagemFragment extends Fragment {
 
                         txtPostagens.setText(postagens);
 
+
+
                         quantidade = Integer.parseInt(postagens);
                         //Configura valores recuperados
+
 
 
                     }
@@ -271,9 +250,76 @@ public class PostagemFragment extends Fragment {
 
     }
 
+
+    private void carregarRecompensaAd() {
+
+        if(!mAd.isLoaded()) {
+
+            mAd.loadAd("ca-app-pub-3940256099942544/5224354917", new AdRequest.Builder().build());
+        }
+    }
+
+    public void startVideoAd(View view) {
+
+        if (mAd.isLoaded()) {
+            mAd.show();
+
+            addContadorPostagens();
+        }
+
+    }
+
+    private void addContadorPostagens() {
+        quantidade = quantidade +1;
+        usuarioLogado.setNumeroPostagens(quantidade);
+        usuarioLogado.salvar();
+    }
+
     @Override
     public void onStart() {
         super.onStart();
         recuperarDadosUsuarioLogado();
+    }
+
+
+    @Override
+    public void onRewardedVideoAdLoaded() {
+
+    }
+
+    @Override
+    public void onRewardedVideoAdOpened() {
+
+    }
+
+    @Override
+    public void onRewardedVideoStarted() {
+
+    }
+
+    @Override
+    public void onRewardedVideoAdClosed() {
+
+    }
+
+    @Override
+    public void onRewarded(RewardItem rewardItem) {
+
+
+    }
+
+    @Override
+    public void onRewardedVideoAdLeftApplication() {
+
+    }
+
+    @Override
+    public void onRewardedVideoAdFailedToLoad(int i) {
+
+    }
+
+    @Override
+    public void onRewardedVideoCompleted() {
+
     }
 }

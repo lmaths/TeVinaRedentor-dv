@@ -168,7 +168,7 @@ public class EditarPerfilActivity extends AppCompatActivity {
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
                             //Recuperar local da foto
-                            Uri url = taskSnapshot.getDownloadUrl();
+                            Uri url = taskSnapshot.getMetadata().getReference().getDownloadUrl().getResult();
                             atualizarFotoUsuario( url );
 
                             Toast.makeText(EditarPerfilActivity.this,

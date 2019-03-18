@@ -18,6 +18,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.facebook.login.LoginManager;
+import com.google.android.gms.ads.MobileAds;
+import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.rightside.tevinaredentor.R;
@@ -59,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.viewPager, new FeedFragment()).commit();
+
+        MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
 
 
 
@@ -109,11 +114,11 @@ public class MainActivity extends AppCompatActivity {
                         ActionBar a = getSupportActionBar();
                         a.setTitle("  Te vi na Redentor");
                        break;
-                  /*  case R.id.ic_pesquisa :
+                   case R.id.ic_pesquisa :
                         fragmentTransaction.replace(R.id.viewPager, new PesquisaFragment()).commit();
                         ActionBar b = getSupportActionBar();
                         b.setTitle(" Pesquisar");
-                        break; */
+                        break;
                     case R.id.ic_postagem :
                         fragmentTransaction.replace(R.id.viewPager, new PostagemFragment()).commit();
                         ActionBar c = getSupportActionBar();
@@ -180,6 +185,9 @@ public class MainActivity extends AppCompatActivity {
     private void deslogarUsuario(){
         try{
             autenticacao.signOut();
+            FirebaseAuth.getInstance().signOut();
+            LoginManager.getInstance().logOut();
+
         }catch (Exception e){
             e.printStackTrace();
         }

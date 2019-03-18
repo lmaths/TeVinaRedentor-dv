@@ -40,7 +40,7 @@ public class PerfilAmigoActivity extends AppCompatActivity {
     private Usuario usuarioLogado;
     private Button buttonAcaoPerfil;
     private CircleImageView imagePerfil;
-    private TextView textPublicacoes, textSeguidores, textSeguindo, textView;
+    private TextView textPublicacoes, textAmigo, textSeguindo, textView;
     private GridView gridViewPerfil;
     private AdapterGrid adapterGrid;
 
@@ -105,10 +105,10 @@ public class PerfilAmigoActivity extends AppCompatActivity {
         inicializarImageLoader();
 
         //Carrega as fotos das postagens de um usuário
-        carregarFotosPostagem();
+       // carregarFotosPostagem();
 
         //Abre a foto clicada
-        gridViewPerfil.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+      /*  gridViewPerfil.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
@@ -121,7 +121,7 @@ public class PerfilAmigoActivity extends AppCompatActivity {
                 startActivity( i );
 
             }
-        });
+        }); */
 
     }
 
@@ -144,36 +144,46 @@ public class PerfilAmigoActivity extends AppCompatActivity {
 
     public void carregarFotosPostagem(){
 
-        //Recupera as fotos postadas pelo usuario
-        postagens = new ArrayList<>();
-        postagensUsuarioRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+        if (usuarioLogado == null) {
 
-                //Configurar o tamanho do grid
-                int tamanhoGrid = getResources().getDisplayMetrics().widthPixels;
-                int tamanhoImagem = tamanhoGrid / 3;
-                gridViewPerfil.setColumnWidth( tamanhoImagem );
 
-                List<String> urlFotos = new ArrayList<>();
-                for( DataSnapshot ds: dataSnapshot.getChildren() ){
-                    Postagem postagem = ds.getValue( Postagem.class );
-                    postagens.add( postagem );
-                    urlFotos.add( postagem.getCaminhoFoto() );
-                    Log.i("postagem", "url:" + postagem.getCaminhoFoto() );
+
+        } else {
+
+            //Recupera as fotos postadas pelo usuario
+            postagens = new ArrayList<>();
+            postagensUsuarioRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+
+                    //Configurar o tamanho do grid
+                    int tamanhoGrid = getResources().getDisplayMetrics().widthPixels;
+                    int tamanhoImagem = tamanhoGrid / 3;
+                   // gridViewPerfil.setColumnWidth( tamanhoImagem );
+
+                    List<String> urlFotos = new ArrayList<>();
+                    for( DataSnapshot ds: dataSnapshot.getChildren() ){
+                        Postagem postagem = ds.getValue( Postagem.class );
+                        postagens.add( postagem );
+                        urlFotos.add( postagem.getCaminhoFoto() );
+                        Log.i("postagem", "url:" + postagem.getCaminhoFoto() );
+                    }
+
+                    //Configurar adapter
+                   // adapterGrid = new AdapterGrid(getApplicationContext(), R.layout.grid_postagem, urlFotos );
+                   // gridViewPerfil.setAdapter( adapterGrid );
+
                 }
 
-                //Configurar adapter
-                adapterGrid = new AdapterGrid(getApplicationContext(), R.layout.grid_postagem, urlFotos );
-                gridViewPerfil.setAdapter( adapterGrid );
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
-            }
+                }
+            });
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+        }
 
-            }
-        });
+
 
     }
 
@@ -219,11 +229,11 @@ public class PerfilAmigoActivity extends AppCompatActivity {
                         if( dataSnapshot.exists() ){
                             //Já está seguindo
                             Log.i("dadosUsuario", ": Seguindo" );
-                            habilitarBotaoSeguir( true );
+
                         }else {
                             //Ainda não está seguindo
                             Log.i("dadosUsuario", ": seguir" );
-                            habilitarBotaoSeguir( false );
+
                         }
                     }
 
@@ -239,20 +249,20 @@ public class PerfilAmigoActivity extends AppCompatActivity {
     private void habilitarBotaoSeguir( boolean segueUsuario ){
 
         if ( segueUsuario ){
-            buttonAcaoPerfil.setText("Seguindo");
+            //buttonAcaoPerfil.setText("Seguindo");
         }else {
 
-            buttonAcaoPerfil.setText("Seguir");
+            //buttonAcaoPerfil.setText("Seguir");
 
             //Adiciona evento para seguir usuário
-            buttonAcaoPerfil.setOnClickListener(new View.OnClickListener() {
+            /*buttonAcaoPerfil.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
                     //Salvar seguidor
                     salvarSeguidor(usuarioLogado, usuarioSelecionado);
                 }
-            });
+            }); */
 
         }
 
@@ -275,8 +285,8 @@ public class PerfilAmigoActivity extends AppCompatActivity {
         seguidorRef.setValue( dadosUsuarioLogado );
 
         //Alterar botao acao para seguindo
-        buttonAcaoPerfil.setText("Seguindo");
-        buttonAcaoPerfil.setOnClickListener(null);
+      //  buttonAcaoPerfil.setText("Seguindo");
+      //  buttonAcaoPerfil.setOnClickListener(null);
 
         //Incrementar seguindo do usuário logado
         int seguindo = uLogado.getSeguindo() + 1;
@@ -326,13 +336,16 @@ public class PerfilAmigoActivity extends AppCompatActivity {
                         Usuario usuario = dataSnapshot.getValue( Usuario.class );
 
                         String postagens = String.valueOf( usuario.getPostagens() );
-                        String seguindo = String.valueOf( usuario.getSeguindo() );
-                        String seguidores = String.valueOf( usuario.getSeguidores() );
+
+                        String nomeAmigo = String.valueOf(usuario.getNome());
+
+                        String nome = nomeAmigo.toLowerCase();
+                        nome = nome.substring(0,1).toUpperCase().concat(nome.substring(1));
 
                         //Configura valores recuperados
-                        textPublicacoes.setText( postagens );
-                        textSeguidores.setText( seguidores );
-                        textSeguindo.setText( seguindo );
+                      textPublicacoes.setText( postagens );
+
+                        textAmigo.setText(nome);
 
                     }
 
@@ -347,19 +360,16 @@ public class PerfilAmigoActivity extends AppCompatActivity {
 
     private void inicializarComponentes(){
         imagePerfil = findViewById(R.id.imagePerfil);
-        gridViewPerfil = findViewById(R.id.gridViewPerfil);
-        gridViewPerfil.setVisibility(View.GONE);
-        buttonAcaoPerfil = findViewById(R.id.buttonAcaoPerfil);
+       // gridViewPerfil = findViewById(R.id.gridViewPerfil);
+       // gridViewPerfil.setVisibility(View.GONE);
+       buttonAcaoPerfil = findViewById(R.id.buttonAcaoPerfil);
         buttonAcaoPerfil.setVisibility(View.GONE);
-        textPublicacoes = findViewById(R.id.textPublicacoes);
+       textPublicacoes = findViewById(R.id.textPublicacoes);
         textPublicacoes.setVisibility(View.GONE);
-        textSeguidores = findViewById(R.id.textSeguidores);
-        textSeguidores.setVisibility(View.GONE);
-        textSeguindo = findViewById(R.id.textSeguindo);
-        textSeguindo.setVisibility(View.GONE);
         textView = findViewById(R.id.textView);
+        textAmigo = findViewById(R.id.txtNomeUsuario);
         textView.setVisibility(View.GONE);
-        buttonAcaoPerfil.setText("Carregando");
+
     }
 
     @Override

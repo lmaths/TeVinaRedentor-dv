@@ -210,7 +210,7 @@ public class ChatActivity extends AppCompatActivity {
                     }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            String downloadUrl = taskSnapshot.getDownloadUrl().toString(); //url da imagem gerada convertida para string uri
+                            String downloadUrl = taskSnapshot.getMetadata().getReference().getDownloadUrl().getResult().toString(); //url da imagem gerada convertida para string uri
 
                             Mensagem mensagem = new Mensagem();
                             mensagem.setIdUsuario(idUsuarioRemetente);
