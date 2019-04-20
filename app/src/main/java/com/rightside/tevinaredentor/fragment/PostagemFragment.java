@@ -53,7 +53,7 @@ public class PostagemFragment extends Fragment implements RewardedVideoAdListene
     private static final int SELECAO_GALERIA = 200;
     private Usuario usuarioLogado;
     private RewardedVideoAd mAd;
-    Timer timer1 = new Timer();
+
 
 
     private DatabaseReference firebaseRef;
@@ -318,8 +318,5 @@ public class PostagemFragment extends Fragment implements RewardedVideoAdListene
 
     }
 
-    @Override
-    public void onRewardedVideoCompleted() {
 
-    }
 }

@@ -17,8 +17,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.facebook.login.LoginManager;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
@@ -37,6 +40,9 @@ public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth autenticacao;
 
+    private AdView mAdView;
+    private ActionBar actionBar;
+
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -44,12 +50,31 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        MobileAds.initialize(this,
+                "ca-app-pub-3940256099942544~3347511713");
+
+
         //Configura toolbar
 
         Toolbar toolbar = findViewById(R.id.toolbarPrincipal);
         toolbar.setTitle("   Te vi na Redentor");
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+
+        AdView adView = new AdView(this);
+        adView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+        mAdView.setVisibility(View.GONE);
+
+
+
+
+
 
 
         setSupportActionBar( toolbar );
@@ -111,33 +136,40 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()){
                     case R.id.ic_home :
                         fragmentTransaction.replace(R.id.viewPager, new FeedFragment()).commit();
-                        ActionBar a = getSupportActionBar();
-                        a.setTitle("  Te vi na Redentor");
+                        actionBar = getSupportActionBar();
+                        actionBar.setTitle("  Feed:");
+                        mAdView.setVisibility(View.GONE);
                        break;
                    case R.id.ic_pesquisa :
                         fragmentTransaction.replace(R.id.viewPager, new PesquisaFragment()).commit();
-                        ActionBar b = getSupportActionBar();
-                        b.setTitle(" Pesquisar");
+                        actionBar = getSupportActionBar();
+                        actionBar.setTitle(" Pesquisar");
+                        mAdView.setVisibility(View.VISIBLE);
+
                         break;
                     case R.id.ic_postagem :
                         fragmentTransaction.replace(R.id.viewPager, new PostagemFragment()).commit();
-                        ActionBar c = getSupportActionBar();
-                        c.setTitle(" Postar Foto");
+                        actionBar = getSupportActionBar();
+                        actionBar.setTitle(" Poste suas fotos:");
+                        mAdView.setVisibility(View.VISIBLE);
+
                        break;
                     case R.id.ic_perfil :
                         fragmentTransaction.replace(R.id.viewPager, new PerfilFragment()).commit();
-                        ActionBar d = getSupportActionBar();
-                        d.setTitle(" Meu Perfil");
+                        actionBar = getSupportActionBar();
+                        actionBar.setTitle(" Meu Perfil");
+                        mAdView.setVisibility(View.VISIBLE);
                         break;
 
                         case R.id.ic_chat :
-                            ActionBar e = getSupportActionBar();
-                        e.setTitle(" Minhas Conversas");
-                        fragmentTransaction.replace(R.id.viewPager, new HistoricochatFragment()).commit();
+                            actionBar = getSupportActionBar();
+                            actionBar.setTitle(" Minhas Conversas");
+                            fragmentTransaction.replace(R.id.viewPager, new HistoricochatFragment()).commit();
+                            mAdView.setVisibility(View.VISIBLE);
                         break;
 
                         default:
-                            ActionBar f = getSupportActionBar();
+
 
                             return false;
 

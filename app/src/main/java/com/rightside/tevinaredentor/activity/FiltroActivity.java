@@ -264,8 +264,9 @@ public class FiltroActivity extends AppCompatActivity {
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
                 //Recuperar local da foto
-                Uri url = taskSnapshot.getMetadata().getReference().getDownloadUrl().getResult();
-                postagem.setCaminhoFoto( url.toString() );
+
+                Uri url = taskSnapshot.getDownloadUrl();
+                postagem.setCaminhoFoto(url.toString());
 
                 //Atualizar qtde de postagens
                 int qtdPostagem = usuarioLogado.getPostagens() + 1;
