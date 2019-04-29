@@ -42,5 +42,6 @@
     <include layout="@layout/content_chat" />
 
 
+    <!-- teste -->
 
 </android.support.design.widget.CoordinatorLayout>

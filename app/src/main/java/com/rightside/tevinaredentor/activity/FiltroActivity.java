@@ -46,6 +46,8 @@ import java.util.List;
 
 public class FiltroActivity extends AppCompatActivity {
 
+    //filtro fotos
+
     static
     {
         System.loadLibrary("NativeImageProcessor");

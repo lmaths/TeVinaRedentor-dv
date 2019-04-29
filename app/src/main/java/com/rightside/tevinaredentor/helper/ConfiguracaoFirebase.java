@@ -9,6 +9,7 @@ import com.google.firebase.storage.StorageReference;
 
 
 public class ConfiguracaoFirebase {
+    //
 
     private static DatabaseReference referenciaFirebase;
     private static FirebaseAuth referenciaAutenticacao;

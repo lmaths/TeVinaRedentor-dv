@@ -10,3 +10,5 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
     app:itemIconTint="@android:color/black"
     app:itemTextColor="@android:color/black"
     app:menu="@menu/menu_bottom_navigation" />
+
+    <!-- teste -->

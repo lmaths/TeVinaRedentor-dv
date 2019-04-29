@@ -35,6 +35,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class EditarPerfilActivity extends AppCompatActivity {
 
+    //editar perfil
+
     private CircleImageView imageEditarPerfil;
     private TextView textAlterarFoto;
     private TextInputEditText editNomePerfil, editEmailPerfil;

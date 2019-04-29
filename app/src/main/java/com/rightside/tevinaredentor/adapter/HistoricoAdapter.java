@@ -30,6 +30,7 @@ public class HistoricoAdapter extends RecyclerView.Adapter<HistoricoAdapter.MyVi
         this.context = c;
 
     }
+    //
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
