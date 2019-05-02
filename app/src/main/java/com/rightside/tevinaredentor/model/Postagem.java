@@ -24,8 +24,6 @@ public class Postagem implements Serializable {
     *
     * */
 
-    //
-
     private String id;
     private String idUsuario;
     private String descricao;

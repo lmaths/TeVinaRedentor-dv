@@ -22,8 +22,6 @@ public class UsuarioFirebase {
 
     }
 
-    //
-
     public static String getIdentificadorUsuario(){
         return getUsuarioAtual().getUid();
     }

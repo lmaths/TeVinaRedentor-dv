@@ -5,5 +5,4 @@
     >
     <solid android:color="#95808000"></solid>
     <corners android:radius="5dp" ></corners>
-    <!-- teste -->
 </shape>

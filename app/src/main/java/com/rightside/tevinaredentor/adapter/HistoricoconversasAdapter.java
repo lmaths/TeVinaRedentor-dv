@@ -31,7 +31,6 @@ public class HistoricoconversasAdapter extends RecyclerView.Adapter<Historicocon
 
     }
 
-    //
     @Override
     public int getItemCount() {
         return 0;

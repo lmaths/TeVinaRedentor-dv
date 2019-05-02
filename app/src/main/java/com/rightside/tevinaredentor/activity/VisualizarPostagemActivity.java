@@ -16,8 +16,6 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class VisualizarPostagemActivity extends AppCompatActivity {
 
-    //visualizar
-
     private TextView textPerfilPostagem,textQtdCurtidasPostagem,
             textDescricaoPostagem,textVisualizarComentariosPostagem;
     private ImageView imagePostagemSelecionada;

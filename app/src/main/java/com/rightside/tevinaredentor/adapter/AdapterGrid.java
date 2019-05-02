@@ -20,7 +20,6 @@ import java.util.List;
 
 
 public class AdapterGrid extends ArrayAdapter<String> {
-    //
 
     private Context context;
     private int layoutResource;

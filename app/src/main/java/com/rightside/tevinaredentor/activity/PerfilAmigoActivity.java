@@ -36,8 +36,6 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class PerfilAmigoActivity extends AppCompatActivity {
 
-    //teste
-
     private Usuario usuarioSelecionado;
     private Usuario usuarioLogado;
     private Button buttonAcaoPerfil;

@@ -23,8 +23,6 @@ public class ShowCamera extends SurfaceView implements SurfaceHolder.Callback {
         holder.addCallback(this);
     }
 
-    //
-
 
     @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {

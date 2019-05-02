@@ -68,7 +68,7 @@ public class PostagemFragment extends Fragment implements RewardedVideoAdListene
    // FrameLayout frameLayout;
     //ShowCamera showCamera;
 
-//
+
 
 
 

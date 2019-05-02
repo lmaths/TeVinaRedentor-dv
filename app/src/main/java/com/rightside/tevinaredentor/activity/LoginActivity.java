@@ -45,8 +45,6 @@ import java.util.Arrays;
 
 public class LoginActivity extends IntroActivity {
 
-    //login
-
     private EditText campoEmail, campoSenha;
     private TextView txt;
     private Button botaoEntrar;

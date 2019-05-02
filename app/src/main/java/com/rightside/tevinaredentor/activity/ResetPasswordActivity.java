@@ -17,7 +17,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.rightside.tevinaredentor.R;
 
 public class ResetPasswordActivity extends AppCompatActivity {
-    //
 
     private EditText passwordEmail;
     private Button resetPassword;

@@ -28,7 +28,6 @@ public class AdapterPesquisa extends RecyclerView.Adapter<AdapterPesquisa.MyView
         this.listaUsuario = l;
         this.context = c;
     }
-    //
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

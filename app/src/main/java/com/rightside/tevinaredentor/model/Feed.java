@@ -13,8 +13,6 @@ public class Feed {
     public Feed() {
     }
 
-    //
-
     public String getId() {
         return id;
     }
