@@ -23,4 +23,5 @@ public class SquareImageView extends AppCompatImageView {
         super.onMeasure(widthMeasureSpec, widthMeasureSpec);
     }
 
+    //
 }

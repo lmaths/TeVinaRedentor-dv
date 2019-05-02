@@ -34,6 +34,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class AdapterFeed extends RecyclerView.Adapter<AdapterFeed.MyViewHolder> {
+    //
 
     private List<Feed> listaFeed;
     private Context context;

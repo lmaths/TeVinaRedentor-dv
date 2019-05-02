@@ -31,6 +31,7 @@ public class MensagensAdapter extends RecyclerView.Adapter<MensagensAdapter.MyVi
         this.mensagens = lista;
         this.context = c;
     }
+    //
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) { //parametro viewType, define o tipo da view que quero retornar

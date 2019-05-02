@@ -13,7 +13,7 @@ import com.zomato.photofilters.utils.ThumbnailItem;
 
 import java.util.List;
 
-
+//
 
 public class AdapterMiniaturas extends RecyclerView.Adapter<AdapterMiniaturas.MyViewHolder> {
 

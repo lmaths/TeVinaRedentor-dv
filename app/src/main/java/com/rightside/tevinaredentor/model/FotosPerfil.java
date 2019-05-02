@@ -23,6 +23,8 @@ public class FotosPerfil {
         setId(idFotosPerfil);
     }
 
+    //
+
 
     public boolean salvar(DataSnapshot seguidoresSnapshot) {
         Map objeto = new HashMap();

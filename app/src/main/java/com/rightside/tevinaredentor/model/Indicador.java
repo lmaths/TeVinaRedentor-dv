@@ -13,6 +13,8 @@ public class Indicador {
     public Indicador() {
     }
 
+    //
+
     public void salvarindicador() {
 
         DatabaseReference firebaseRef = ConfiguracaoFirebase.getFirebase();
