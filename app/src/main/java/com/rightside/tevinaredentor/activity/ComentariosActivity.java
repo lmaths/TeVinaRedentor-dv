@@ -27,7 +27,6 @@ import java.util.List;
 
 public class ComentariosActivity extends AppCompatActivity {
 
-    //comentario
     private EditText editComentario;
     private RecyclerView recyclerComentarios;
 

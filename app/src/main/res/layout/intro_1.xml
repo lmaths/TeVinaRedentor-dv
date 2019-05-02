@@ -56,5 +56,3 @@
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:srcCompat="@drawable/avatar" />
 </android.support.constraint.ConstraintLayout>
-
-    <!-- teste -->

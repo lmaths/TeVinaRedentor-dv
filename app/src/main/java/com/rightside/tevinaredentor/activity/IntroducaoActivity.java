@@ -8,7 +8,6 @@ import com.heinrichreimersoftware.materialintro.slide.FragmentSlide;
 import com.rightside.tevinaredentor.R;
 
 public class IntroducaoActivity extends IntroActivity {
-    //intro acctivity ainda não utilizada
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

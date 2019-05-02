@@ -17,8 +17,6 @@ public class Comentario {
     public Comentario() {
     }
 
-    //
-
     public boolean salvar(){
 
         /*

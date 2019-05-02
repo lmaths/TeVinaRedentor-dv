@@ -20,6 +20,3 @@
         android:scaleType="centerCrop"
         app:srcCompat="@drawable/avatar" />
 </LinearLayout>
-
-
-    <!-- teste -->

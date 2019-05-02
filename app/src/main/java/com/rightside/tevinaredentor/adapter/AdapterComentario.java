@@ -31,8 +31,6 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class AdapterComentario extends RecyclerView.Adapter<AdapterComentario.MyViewHolder> {
 
-    //adapter
-
     private List<Comentario> listaComentarios;
 
     private Context context;

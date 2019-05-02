@@ -15,8 +15,6 @@ public class PostagemCurtida {
     public PostagemCurtida() {
     }
 
-
-    //
     public void salvar(){
 
         DatabaseReference firebaseRef = ConfiguracaoFirebase.getFirebase();

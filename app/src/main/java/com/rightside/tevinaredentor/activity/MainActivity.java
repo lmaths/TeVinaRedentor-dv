@@ -38,7 +38,6 @@ import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 public class MainActivity extends AppCompatActivity {
 
-    //main
     private FirebaseAuth autenticacao;
 
     private AdView mAdView;

@@ -52,8 +52,6 @@ public class HistoricochatFragment extends Fragment {
     public HistoricochatFragment() {
         }
 
-    //
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

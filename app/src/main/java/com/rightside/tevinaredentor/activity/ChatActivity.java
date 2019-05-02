@@ -48,7 +48,6 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ChatActivity extends AppCompatActivity {
 
-    //activity chat
     private TextView textViewNome;
     private CircleImageView circleImageViewFoto;
     private Usuario usuarioDestinatario;

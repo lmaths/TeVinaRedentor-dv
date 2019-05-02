@@ -12,5 +12,3 @@
     <include layout="@layout/fragment_perfil" />
 
 </LinearLayout>
-
-    <!-- teste -->

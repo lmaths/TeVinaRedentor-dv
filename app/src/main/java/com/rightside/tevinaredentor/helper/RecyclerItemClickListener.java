@@ -14,7 +14,6 @@ public class RecyclerItemClickListener implements RecyclerView.OnItemTouchListen
 
     private OnItemClickListener mListener;
     GestureDetector mGestureDetector;
-    //
 
     @Override
     public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
