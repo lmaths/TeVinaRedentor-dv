@@ -12,10 +12,10 @@
     <!-- Tema para tela de login -->
     <style name="AppThemeLogin" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/roxo</item>
+        <item name="colorPrimary">#169898</item>
+        <item name="colorPrimaryDark">#169898</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:colorBackground">@color/cinza_medio</item>
+        <item name="android:colorBackground">#169898</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
